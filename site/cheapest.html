@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="__variable_d8ebd1 __variable_b7e283"><head><meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Cheapest Flights by Month: Pick Your Months | Cheat The Sky</title>
+<meta name="description" content="Pick the month you leave and the month you come back. Cheat The Sky lists the cheapest flights for each day of both months and takes you to book."/>
+<link rel="canonical" href="https://cheat-the-sky.pages.dev/cheapest"/>
+<meta property="og:title" content="Cheapest Flights by Month | Cheat The Sky"/><meta property="og:site_name" content="Cheat The Sky"/>
+<link rel="stylesheet" href="/_next/static/css/69e77ae9854f24b5.css"/>
+<style>
+*{box-sizing:border-box}body{margin:0;background:var(--bg,#f1ecea);color:var(--ink,#1f2430);font-family:var(--font-inter,Inter),system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+html[dir=rtl] body{font-family:var(--font-cairo,Cairo),system-ui,sans-serif}
+.top{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 20px;max-width:980px;margin:0 auto}
+.top a{color:var(--ink,#1f2430);text-decoration:none;font-size:14px}.brand{font-weight:700;font-size:16px}
+.nav{display:flex;gap:16px;align-items:center}.nav a{opacity:.7}.nav button{background:none;border:1px solid rgba(0,0,0,.15);border-radius:8px;padding:4px 10px;font:inherit;font-size:13px;cursor:pointer;color:inherit}
+main{max-width:980px;margin:0 auto;padding:8px 16px 60px}
+h1{font-size:clamp(24px,5vw,38px);line-height:1.15;margin:12px 0 6px}.sub{color:#6b6469;margin:0 0 18px;font-size:15px}
+.card{background:#faf8f7;border-radius:18px;padding:16px;box-shadow:0 6px 24px rgba(31,36,48,.07)}
+.grid{display:grid;grid-template-columns:repeat(8,1fr);gap:10px;align-items:end}
+.f{display:flex;flex-direction:column;gap:4px;position:relative;min-width:0}.f label{font-size:12px;color:#6b6469}
+.f input,.f select{height:46px;border:1px solid rgba(0,0,0,.14);border-radius:12px;padding:0 8px;font:inherit;font-size:14px;text-overflow:ellipsis;background:#fff;color:inherit;width:100%}
+.c2{grid-column:span 2}.c3{grid-column:span 1}.btn{display:inline-flex;align-items:center;justify-content:center;background:var(--ink,#1f2430);color:#fff;border:0;border-radius:12px;height:46px;padding:0 20px;font:inherit;font-weight:600;font-size:15px;text-decoration:none;cursor:pointer;white-space:nowrap}
+.btn:hover{background:#2e3546}.btn.sec{background:transparent;color:var(--ink,#1f2430);border:1px solid rgba(0,0,0,.2)}
+.sug{position:absolute;top:72px;left:0;right:0;background:#fff;border-radius:12px;box-shadow:0 10px 30px rgba(0,0,0,.15);z-index:20;max-height:260px;overflow:auto;display:none}
+.sug div{padding:10px 12px;cursor:pointer;font-size:14px}.sug div:hover,.sug div.on{background:#eef3f6}.sug small{color:#8a8388}
+h2{font-size:20px;margin:28px 0 4px}.note{color:#6b6469;font-size:13px;margin:0 0 10px}
+.row{display:flex;align-items:center;gap:12px;background:#faf8f7;border-radius:14px;padding:12px 14px;margin-bottom:8px;box-shadow:0 2px 10px rgba(31,36,48,.05)}
+.row .d{min-width:104px;font-weight:600}.row .a{flex:1;color:#6b6469;font-size:13px;min-width:0}.row .p{font-weight:700;font-size:18px;min-width:84px;text-align:end}
+.row.best{outline:2px solid #6fbf8f}.badge{background:#dff3e6;color:#1f6b3f;border-radius:999px;font-size:11px;padding:2px 8px;margin-inline-start:6px;font-weight:600}
+.row .btn{height:40px;padding:0 16px}.empty,.err,.load{padding:16px;border-radius:14px;background:#faf8f7;color:#6b6469;font-size:14px}.err{background:#fbeaea;color:#8a2c2c}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.foot{margin-top:28px;font-size:12px;color:#8a8388}
+@media(max-width:760px){.grid{grid-template-columns:1fr 1fr}.grid>.f{grid-column:span 1!important}.grid>.f:nth-child(1),.grid>.f:nth-child(2),.grid>.f:nth-child(3),.grid>.f:nth-child(6){grid-column:span 2!important}.two{grid-template-columns:1fr}.row{flex-wrap:wrap}.row .a{order:3;flex-basis:100%}.row .p{margin-inline-start:auto}.row .btn{order:4;flex-basis:100%}}
+</style></head>
+<body>
+<div class="top"><a class="brand" href="/">Cheat The Sky</a><div class="nav"><a href="/guide" data-t="guide">Country guide</a><a href="/visa" data-t="visa">Visa</a><button id="lang">العربية</button></div></div>
+<main>
+<h1 data-t="h1">Cheapest flights by month</h1>
+<p class="sub" data-t="sub">Pick the month you leave and the month you come back. We list the cheapest flight for each day, both ways.</p>
+<form class="card" id="f" autocomplete="off"><div class="grid">
+<div class="f" style="grid-column:span 3"><label data-t="from">From</label><input id="from" placeholder="City or airport" data-ph="ph" required/><div class="sug" id="sf"></div></div>
+<div class="f" style="grid-column:span 3"><label data-t="to">To</label><input id="to" placeholder="City or airport" data-ph="ph" required/><div class="sug" id="st"></div></div>
+<div class="f" style="grid-column:span 2"><label data-t="cur">Currency</label><select id="cur"><option>USD</option><option>EUR</option><option>GBP</option><option>EGP</option><option>SAR</option><option>AED</option><option>TRY</option><option>KWD</option><option>QAR</option></select></div><div class="f" style="grid-column:span 3"><label data-t="dep">Leave in</label><select id="dep"></select></div>
+<div class="f" style="grid-column:span 3"><label data-t="ret">Come back in</label><select id="ret"></select></div>
+
+<div class="f" style="grid-column:span 2"><button class="btn" type="submit" data-t="go">Find cheapest flights</button></div>
+</div></form>
+<div id="out"></div>
+<p class="foot" data-t="foot">Prices come from recent searches on Aviasales and can change when you book. Booking links may earn us a commission at no cost to you.</p>
+</main>
+<script>
+(function(){
+var D={en:{guide:'Country guide',visa:'Visa',h1:'Cheapest flights by month',sub:'Pick the month you leave and the month you come back. We list the cheapest flight for each day, both ways.',from:'From',to:'To',dep:'Leave in',ret:'Come back in',cur:'Currency',go:'Find cheapest flights',ph:'City or airport',oneway:'One way (no return)',foot:'Prices come from recent searches on Aviasales and can change when you book. Booking links may earn us a commission at no cost to you.',
+ rt:'Best round trips',rtn:'Leave in {a}, come back in {b}. Pick one to book both legs together.',out:'Leaving in {a}: cheapest per day',outn:'{o} to {d}, one way.',back:'Coming back in {a}: cheapest per day',backn:'{d} to {o}, one way.',book:'Book',best:'Cheapest',direct:'Direct',stops:'{n} stop(s)',none:'No cached prices for this month on this route. Try another month or nearby airport.',load:'Searching...',err:'Could not load prices right now. Try again in a minute.',pick:'Choose a city or airport from the list for both From and To.',same:'From and To must be different.',order:'The return month must be the same as or after the leave month.',live:'See live prices on Aviasales',exact:'Exact dates'},
+ar:{guide:'دليل الدول',visa:'التأشيرة',h1:'أرخص رحلات حسب الشهر',sub:'اختار شهر السفر وشهر الرجوع، وهنعرضلك أرخص رحلة لكل يوم، رايح وراجع.',from:'من',to:'إلى',dep:'السفر في شهر',ret:'الرجوع في شهر',cur:'العملة',go:'دوّر على أرخص الرحلات',ph:'مدينة أو مطار',oneway:'ذهاب فقط',foot:'الأسعار من عمليات بحث قريبة على Aviasales وممكن تتغير وقت الحجز. روابط الحجز ممكن تديلنا عمولة من غير ما تدفع زيادة.',
+ rt:'أرخص ذهاب وعودة',rtn:'سفر في {a} ورجوع في {b}. اختار واحدة تحجز الاتنين مع بعض.',out:'السفر في {a}: أرخص سعر لكل يوم',outn:'{o} إلى {d}، ذهاب فقط.',back:'الرجوع في {a}: أرخص سعر لكل يوم',backn:'{d} إلى {o}، ذهاب فقط.',book:'احجز',best:'الأرخص',direct:'مباشر',stops:'{n} توقف',none:'مفيش أسعار مخزنة للشهر ده على المسار ده. جرب شهر تاني أو مطار قريب.',load:'بنبحث...',err:'مقدرناش نحمّل الأسعار دلوقتي. جرب كمان دقيقة.',pick:'اختار مدينة أو مطار من القائمة في خانتي من وإلى.',same:'من وإلى لازم يكونوا مختلفين.',order:'شهر الرجوع لازم يكون نفس شهر السفر أو بعده.',live:'شوف الأسعار الحية على Aviasales',exact:'تواريخ محددة'}};
+var L=(localStorage.getItem('cts-lang')||((navigator.language||'').slice(0,2)=='ar'?'ar':'en'));
+var $=function(i){return document.getElementById(i)};var sel={from:'',to:''};
+function t(k,o){var s=(D[L][k]||D.en[k]||k);if(o)for(var x in o)s=s.replace('{'+x+'}',o[x]);return s}
+function applyLang(){document.documentElement.lang=L;document.documentElement.dir=L=='ar'?'rtl':'ltr';
+ document.querySelectorAll('[data-t]').forEach(function(e){e.textContent=t(e.getAttribute('data-t'))});
+ document.querySelectorAll('[data-ph]').forEach(function(e){e.placeholder=t('ph')});
+ $('lang').textContent=L=='ar'?'English':'العربية';fillMonths();}
+var loc=function(){return L=='ar'?'ar-EG':'en-US'};
+function fillMonths(){var d=$('dep').value,r=$('ret').value;var n=new Date();['dep','ret'].forEach(function(id){var s=$(id);s.innerHTML='';
+ if(id=='ret'){var o=document.createElement('option');o.value='';o.textContent=t('oneway');s.appendChild(o)}
+ for(var i=0;i<13;i++){var x=new Date(n.getFullYear(),n.getMonth()+i,1);var v=x.getFullYear()+'-'+String(x.getMonth()+1).padStart(2,'0');var o=document.createElement('option');o.value=v;o.textContent=x.toLocaleDateString(loc(),{month:'short',year:'numeric'});s.appendChild(o)}});
+ $('dep').value=d||$('dep').options[0].value;$('ret').value=r!==''&&r?r:(r===''&&$('ret').dataset.set?'':$('ret').options[2].value);$('ret').dataset.set='1';}
+function ac(id,box,key){var inp=$(id),sg=$(box),tm;
+ inp.addEventListener('input',function(){sel[key]='';var v=inp.value.trim();clearTimeout(tm);if(/^[A-Za-z]{3}$/.test(v))sel[key]=v.toUpperCase();if(v.length<2){sg.style.display='none';return}
+  tm=setTimeout(function(){fetch('/api/places?q='+encodeURIComponent(v)).then(function(r){return r.json()}).then(function(j){var seen={},items=[];(j.places||[]).forEach(function(p){var k=p.iata;if(seen[k])return;seen[k]=1;items.push(p)});
+   sg.innerHTML='';items.slice(0,8).forEach(function(p){var d=document.createElement('div');d.textContent=p.city+' ('+p.iata+') ';var s=document.createElement('small');s.textContent=(L=='ar'&&p.countryAr?p.countryAr:p.country)||'';d.appendChild(s);
+    d.addEventListener('mousedown',function(e){e.preventDefault();inp.value=p.city+' ('+p.iata+')';sel[key]=p.iata;sg.style.display='none'});sg.appendChild(d)});sg.style.display=items.length?'block':'none'}).catch(function(){})},180)});
+ inp.addEventListener('blur',function(){setTimeout(function(){sg.style.display='none'},150)});}
+function fmtDate(s){var p=s.split('-');return new Date(+p[0],+p[1]-1,+p[2]).toLocaleDateString(loc(),{weekday:'short',day:'numeric',month:'short'})}
+function monthName(v){var p=v.split('-');return new Date(+p[0],+p[1]-1,1).toLocaleDateString(loc(),{month:'long',year:'numeric'})}
+function money(p,c){try{return new Intl.NumberFormat(loc(),{style:'currency',currency:c,maximumFractionDigits:0}).format(p)}catch(e){return p+' '+c}}
+function row(f,c,best,both){var r=document.createElement('div');r.className='row'+(best?' best':'');
+ var d=document.createElement('div');d.className='d';d.textContent=both&&f.returnDate?fmtDate(f.departDate)+' → '+fmtDate(f.returnDate):fmtDate(f.departDate);
+ if(best){var b=document.createElement('span');b.className='badge';b.textContent=t('best');d.appendChild(b)}
+ var a=document.createElement('div');a.className='a';a.textContent=(f.airlineName||f.airline||'')+' · '+(f.stops===0?t('direct'):f.stops==null?'':t('stops',{n:f.stops}));
+ var p=document.createElement('div');p.className='p';p.textContent=money(f.price,c);
+ var l=document.createElement('a');l.className='btn';l.textContent=t('book');l.target='_blank';l.rel='sponsored noopener';if(/^https:\/\/www\.aviasales\.com\//.test(f.link))l.href=f.link;
+ r.appendChild(d);r.appendChild(a);r.appendChild(p);r.appendChild(l);return r}
+function section(box,title,note,list,c,both){var h=document.createElement('h2');h.textContent=title;box.appendChild(h);var n=document.createElement('p');n.className='note';n.textContent=note;box.appendChild(n);
+ if(!list.length){var e=document.createElement('div');e.className='empty';e.textContent=t('none');box.appendChild(e);return}
+ var m=Math.min.apply(null,list.map(function(x){return x.price}));var done=false;list.forEach(function(f){var b=!done&&f.price==m;if(b)done=true;box.appendChild(row(f,c,b,both))})}
+function msg(cls,txt){var o=$('out');o.innerHTML='';var d=document.createElement('div');d.className=cls;d.textContent=txt;o.appendChild(d)}
+var seq=0;
+function run(){var from=sel.from,to=sel.to,dep=$('dep').value,ret=$('ret').value,cur=$('cur').value;
+ if(!from||!to)return msg('err',t('pick'));if(from==to)return msg('err',t('same'));if(ret&&ret<dep)return msg('err',t('order'));
+ history.replaceState(null,'','/cheapest?'+new URLSearchParams({from:from,to:to,dep:dep,ret:ret,currency:cur,fl:$('from').value,tl:$('to').value}));
+ var my=++seq;msg('load',t('load'));
+ fetch('/api/cheapest?'+new URLSearchParams({from:from,to:to,dep:dep,ret:ret,currency:cur})).then(function(r){return r.json().then(function(j){if(!r.ok)throw 0;return j})}).then(function(j){if(my!=seq)return;var o=$('out');o.innerHTML='';
+  var live=document.createElement('p');var days=function(s){var p=s.split('-');return p[2]+p[1]};
+  if(ret)section(o,t('rt'),t('rtn',{a:monthName(dep),b:monthName(ret)}),j.roundTrips,j.currency,true);
+  var wrap=document.createElement('div');wrap.className=ret?'two':'';var A=document.createElement('div'),B=document.createElement('div');
+  section(A,t('out',{a:monthName(dep)}),t('outn',{o:from,d:to}),j.outbound,j.currency,false);wrap.appendChild(A);
+  if(ret){section(B,t('back',{a:monthName(ret)}),t('backn',{o:from,d:to}),j.inbound,j.currency,false);wrap.appendChild(B)}
+  o.appendChild(wrap)}).catch(function(){if(my==seq)msg('err',t('err'))})}
+$('f').addEventListener('submit',function(e){e.preventDefault();run()});
+$('lang').addEventListener('click',function(){L=L=='ar'?'en':'ar';localStorage.setItem('cts-lang',L);applyLang()});
+ac('from','sf','from');ac('to','st','to');applyLang();
+var q=new URLSearchParams(location.search);
+if(q.get('from')&&q.get('to')){sel.from=(q.get('from')||'').toUpperCase();sel.to=(q.get('to')||'').toUpperCase();$('from').value=q.get('fl')||sel.from;$('to').value=q.get('tl')||sel.to;
+ if(q.get('dep'))$('dep').value=q.get('dep');$('ret').value=q.get('ret')||'';if(q.get('currency'))$('cur').value=q.get('currency');run()}
+})();
+</script><footer style="text-align:center;padding:16px 12px calc(16px + env(safe-area-inset-bottom));font-size:12px;color:#8a8388;border-top:1px solid rgba(0,0,0,.07);position:relative;z-index:1;background:var(--bg,#f1ecea)">Made by Kareem Hesham &middot; <a href="tel:+905379389485" style="color:inherit">+90 537 938 94 85</a> &middot; <a href="https://wa.me/905379389485" target="_blank" rel="noopener" style="color:inherit">WhatsApp</a></footer></body></html>

@@ -1,0 +1,1 @@
+{"compilerOptions":{"target":"ES2022","module":"ESNext","moduleResolution":"bundler","strict":false,"resolveJsonModule":true,"esModuleInterop":true,"skipLibCheck":true,"baseUrl":".","paths":{"next/server":["./shim/next-server.ts"],"@/*":["./src/*"]},"types":[]}}
